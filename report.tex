@@ -9,12 +9,8 @@
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{url}
+\usepackage[left = 3cm, right = 3cm, top = 3cm]{geometry}
 
-\oddsidemargin -10mm
-\evensidemargin -10mm
-\textwidth 160mm
-\textheight 200mm
-\renewcommand\baselinestretch{1.0}
 
 \pagestyle {plain}
 \pagenumbering{arabic}
@@ -54,7 +50,7 @@ Stakeholders would be parties such as the government, and other law enforcement 
 
 \section {Functional Requirements}
 
-\subsection* {Generic Template Module}
+\subsection {Machine Learning Training}
 
 Stack(T)
 
@@ -161,8 +157,329 @@ new Stack($s$):
 
 \end{itemize}
 
-\subsection{Non-Functional Requirements}
+\subsection {Data Storage}
 
-\subsection{Requirements for the Development \& Maintenance Process}
+Stack(T)
+
+\subsection* {Uses}
+
+N/A
+
+\subsection* {Syntax}
+
+\subsubsection* {Exported Types}
+
+\ {What should be written here?}
+
+\subsubsection* {Exported Constants}
+
+None
+
+\subsubsection* {Exported Access Programs}
+
+\begin{tabular}{| l | l | l | p{5cm} |}
+\hline
+\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+\hline
+new Stack & seq of T & Stack & none\\
+\hline
+push & T & Stack & none\\
+\hline
+pop & & Stack & out\_of\_range\\
+\hline
+top & & T & out\_of\_range\\
+\hline
+size & & $\mathbb{N}$ & \\
+\hline
+toSeq& & seq of T & \\
+\hline
+\end{tabular}
+
+\subsection* {Semantics}
+
+\subsubsection* {State Variables}
+
+$S$:  {What is the type of the state variable?}
+
+\subsubsection* {State Invariant}
+
+None
+
+\subsubsection* {Assumptions \& Design Decisions}
+
+\begin{itemize}
+\item The Stack(T) constructor is called for each object instance before any
+  other access routine is called for that object.  The constructor can only be
+  called once.
+\item Though the toSeq() method violates the essential property of the stack
+  object, since this could be achieved by calling top and pop many times, this
+  method is provided as a convenience to the client. In fact, it increases the
+  property of separation of concerns since this means that the client does not
+  have to worry about details of building their own sequence from the sequence
+  of pops.
+\end{itemize}
+
+\subsubsection* {Access Routine Semantics}
+
+new Stack($s$):
+\begin{itemize}
+\item transition: $S := s$
+
+\item output: $\mathit{out} := \mathit{self}$
+\item exception: none
+\end{itemize}
+
+\noindent push($e$):
+\begin{itemize}
+\item output: $out := \text{new Stack}(S\ ||\ \langle e \rangle)$
+\item exception: none
+\end{itemize}
+
+\noindent pop():
+\begin{itemize}
+\item output:  {What should go here?}
+
+\item exception:  {What should go here?}
+
+\end{itemize}
+
+\noindent top():
+\begin{itemize}
+\item output: $\mathit{out} := S[|S| - 1]$
+
+\item exception:  {What should go here?}
+
+\end{itemize}
+
+\noindent size():
+\begin{itemize}
+\item output:  {What should go here?}
+\item exception: None
+\end{itemize}
+
+\noindent toSeq():
+\begin{itemize}
+\item output: $\mathit{out} := S$
+\item exception: None
+
+\end{itemize}
+
+\subsection {Front-end Interface}
+
+Stack(T)
+
+\subsection* {Uses}
+
+N/A
+
+\subsection* {Syntax}
+
+\subsubsection* {Exported Types}
+
+\ {What should be written here?}
+
+\subsubsection* {Exported Constants}
+
+None
+
+\subsubsection* {Exported Access Programs}
+
+\begin{tabular}{| l | l | l | p{5cm} |}
+\hline
+\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+\hline
+new Stack & seq of T & Stack & none\\
+\hline
+push & T & Stack & none\\
+\hline
+pop & & Stack & out\_of\_range\\
+\hline
+top & & T & out\_of\_range\\
+\hline
+size & & $\mathbb{N}$ & \\
+\hline
+toSeq& & seq of T & \\
+\hline
+\end{tabular}
+
+\subsection* {Semantics}
+
+\subsubsection* {State Variables}
+
+$S$:  {What is the type of the state variable?}
+
+\subsubsection* {State Invariant}
+
+None
+
+\subsubsection* {Assumptions \& Design Decisions}
+
+\begin{itemize}
+\item The Stack(T) constructor is called for each object instance before any
+  other access routine is called for that object.  The constructor can only be
+  called once.
+\item Though the toSeq() method violates the essential property of the stack
+  object, since this could be achieved by calling top and pop many times, this
+  method is provided as a convenience to the client. In fact, it increases the
+  property of separation of concerns since this means that the client does not
+  have to worry about details of building their own sequence from the sequence
+  of pops.
+\end{itemize}
+
+\subsubsection* {Access Routine Semantics}
+
+new Stack($s$):
+\begin{itemize}
+\item transition: $S := s$
+
+\item output: $\mathit{out} := \mathit{self}$
+\item exception: none
+\end{itemize}
+
+\noindent push($e$):
+\begin{itemize}
+\item output: $out := \text{new Stack}(S\ ||\ \langle e \rangle)$
+\item exception: none
+\end{itemize}
+
+\noindent pop():
+\begin{itemize}
+\item output:  {What should go here?}
+
+\item exception:  {What should go here?}
+
+\end{itemize}
+
+\noindent top():
+\begin{itemize}
+\item output: $\mathit{out} := S[|S| - 1]$
+
+\item exception:  {What should go here?}
+
+\end{itemize}
+
+\noindent size():
+\begin{itemize}
+\item output:  {What should go here?}
+\item exception: None
+\end{itemize}
+
+\noindent toSeq():
+\begin{itemize}
+\item output: $\mathit{out} := S$
+\item exception: None
+
+\end{itemize}
+
+\subsection {Machine Learning Inference}
+
+Stack(T)
+
+\subsection* {Uses}
+
+N/A
+
+\subsection* {Syntax}
+
+\subsubsection* {Exported Types}
+
+\ {What should be written here?}
+
+\subsubsection* {Exported Constants}
+
+None
+
+\subsubsection* {Exported Access Programs}
+
+\begin{tabular}{| l | l | l | p{5cm} |}
+\hline
+\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
+\hline
+new Stack & seq of T & Stack & none\\
+\hline
+push & T & Stack & none\\
+\hline
+pop & & Stack & out\_of\_range\\
+\hline
+top & & T & out\_of\_range\\
+\hline
+size & & $\mathbb{N}$ & \\
+\hline
+toSeq& & seq of T & \\
+\hline
+\end{tabular}
+
+\subsection* {Semantics}
+
+\subsubsection* {State Variables}
+
+$S$:  {What is the type of the state variable?}
+
+\subsubsection* {State Invariant}
+
+None
+
+\subsubsection* {Assumptions \& Design Decisions}
+
+\begin{itemize}
+\item The Stack(T) constructor is called for each object instance before any
+  other access routine is called for that object.  The constructor can only be
+  called once.
+\item Though the toSeq() method violates the essential property of the stack
+  object, since this could be achieved by calling top and pop many times, this
+  method is provided as a convenience to the client. In fact, it increases the
+  property of separation of concerns since this means that the client does not
+  have to worry about details of building their own sequence from the sequence
+  of pops.
+\end{itemize}
+
+\subsubsection* {Access Routine Semantics}
+
+new Stack($s$):
+\begin{itemize}
+\item transition: $S := s$
+
+\item output: $\mathit{out} := \mathit{self}$
+\item exception: none
+\end{itemize}
+
+\noindent push($e$):
+\begin{itemize}
+\item output: $out := \text{new Stack}(S\ ||\ \langle e \rangle)$
+\item exception: none
+\end{itemize}
+
+\noindent pop():
+\begin{itemize}
+\item output:  {What should go here?}
+
+\item exception:  {What should go here?}
+
+\end{itemize}
+
+\noindent top():
+\begin{itemize}
+\item output: $\mathit{out} := S[|S| - 1]$
+
+\item exception:  {What should go here?}
+
+\end{itemize}
+
+\noindent size():
+\begin{itemize}
+\item output:  {What should go here?}
+\item exception: None
+\end{itemize}
+
+\noindent toSeq():
+\begin{itemize}
+\item output: $\mathit{out} := S$
+\item exception: None
+
+\end{itemize}
+
+\section{Non-Functional Requirements}
+
+\section{Requirements for the Development \& Maintenance Process}
 
 \end {document}
