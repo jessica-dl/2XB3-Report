@@ -48,349 +48,200 @@ The main entities which the domain is comprised of are machine learning, big dat
 
 A machine learning approach will be used to perform the process of artificial facial aging. To generate accurately aged faces, a conditional Generative Adversarial Neural Network (cGAN) must be trained on big data. The machine learning domain is greatly affected by this project, as it will be the first project publicly available that performs artificial aging. On a similar note, if this project can generate sufficiently accurate images, it will drastically improve upon current techniques. This would make it a possibility that this technique could become the industry standard for artificial aging of human faces.\\
 
-\section {Functional Requirements}
-
-\subsection {Machine Learning Training}
-
+\section{Machine Learning Training}
 Author: Sam Cymbaluk\\
 
-\medskip
+\noindent Component Description
 
-\noindent Text goes here.\\
+\subsection{Functional Requirements}
 
+Text
 
-Stack(T)
+\subsection{Non-Functional Requirements}
 
-\subsection* {Uses}
+\subsubsection {Reliability}
 
-N/A
+Text
 
-\subsection* {Syntax}
+\subsubsection {Accuracy of Results}
+ 
+Text
 
-\subsubsection* {Exported Types}
+\subsubsection {Performance}
 
-\ {What should be written here?}
+Text
 
-\subsubsection* {Exported Constants}
+\subsubsection {Human-Computer Interface Issues}
 
-None
+Text
 
-\subsubsection* {Exported Access Programs}
+\subsubsection {Physical Constraints}
 
-\begin{tabular}{| l | l | l | p{5cm} |}
-\hline
-\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
-\hline
-new Stack & seq of T & Stack & none\\
-\hline
-push & T & Stack & none\\
-\hline
-pop & & Stack & out\_of\_range\\
-\hline
-top & & T & out\_of\_range\\
-\hline
-size & & $\mathbb{N}$ & \\
-\hline
-toSeq& & seq of T & \\
-\hline
-\end{tabular}
+Text
 
-\subsection* {Semantics}
+\subsubsection {Portability Issues}
 
-\subsubsection* {State Variables}
+Text
 
-$S$:  {What is the type of the state variable?}
+\subsection{Requirements for the Development & Maintenance Process}
 
-\subsubsection* {State Invariant}
+\subsubsection {Quality Control Procedures}
 
-None
+Text
 
-\subsubsection* {Assumptions \& Design Decisions}
+\subsubsection {Priorities of the Required Functions}
 
-\begin{itemize}
-\item The Stack(T) constructor is called for each object instance before any
-  other access routine is called for that object.  The constructor can only be
-  called once.
-\item Though the toSeq() method violates the essential property of the stack
-  object, since this could be achieved by calling top and pop many times, this
-  method is provided as a convenience to the client. In fact, it increases the
-  property of separation of concerns since this means that the client does not
-  have to worry about details of building their own sequence from the sequence
-  of pops.
-\end{itemize}
+Text
 
-\subsubsection* {Access Routine Semantics}
+\subsubsection {Likely Changes to System Maintenance Procedures}
 
-new Stack($s$):
-\begin{itemize}
-\item transition: $S := s$
+Text
 
-\item output: $\mathit{out} := \mathit{self}$
-\item exception: none
-\end{itemize}
-
-\noindent push($e$):
-\begin{itemize}
-\item output: $out := \text{new Stack}(S\ ||\ \langle e \rangle)$
-\item exception: none
-\end{itemize}
-
-\subsection {Data Storage}
-
+\section{Data Storage}
 Author: Jeff Gibson\\
 
-\medskip
+\noindent Component Description
 
-\noindent Text goes here.\\
+\subsection{Functional Requirements}
 
-Stack(T)
+Text
 
-\subsection* {Uses}
+\subsection{Non-Functional Requirements}
 
-N/A
+\subsubsection {Reliability}
 
-\subsection* {Syntax}
+Text
 
-\subsubsection* {Exported Types}
+\subsubsection {Accuracy of Results}
+ 
+Text
 
-\ {What should be written here?}
+\subsubsection {Performance}
 
-\subsubsection* {Exported Constants}
+Text
 
-None
+\subsubsection {Human-Computer Interface Issues}
 
-\subsubsection* {Exported Access Programs}
+Text
 
-\begin{tabular}{| l | l | l | p{5cm} |}
-\hline
-\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
-\hline
-new Stack & seq of T & Stack & none\\
-\hline
-push & T & Stack & none\\
-\hline
-pop & & Stack & out\_of\_range\\
-\hline
-top & & T & out\_of\_range\\
-\hline
-size & & $\mathbb{N}$ & \\
-\hline
-toSeq& & seq of T & \\
-\hline
-\end{tabular}
+\subsubsection {Physical Constraints}
 
-\subsection* {Semantics}
+Text
 
-\subsubsection* {State Variables}
+\subsubsection {Portability Issues}
 
-$S$:  {What is the type of the state variable?}
+Text
 
-\subsubsection* {State Invariant}
+\subsection{Requirements for the Development & Maintenance Process}
 
-None
+\subsubsection {Quality Control Procedures}
 
-\subsubsection* {Assumptions \& Design Decisions}
+Text
 
-\begin{itemize}
-\item The Stack(T) constructor is called for each object instance before any
-  other access routine is called for that object.  The constructor can only be
-  called once.
-\item Though the toSeq() method violates the essential property of the stack
-  object, since this could be achieved by calling top and pop many times, this
-  method is provided as a convenience to the client. In fact, it increases the
-  property of separation of concerns since this means that the client does not
-  have to worry about details of building their own sequence from the sequence
-  of pops.
-\end{itemize}
+\subsubsection {Priorities of the Required Functions}
 
-\subsubsection* {Access Routine Semantics}
+Text
 
-new Stack($s$):
-\begin{itemize}
-\item transition: $S := s$
+\subsubsection {Likely Changes to System Maintenance Procedures}
 
-\item output: $\mathit{out} := \mathit{self}$
-\item exception: none
-\end{itemize}
+Text
 
-\noindent push($e$):
-\begin{itemize}
-\item output: $out := \text{new Stack}(S\ ||\ \langle e \rangle)$
-\item exception: none
-\end{itemize}
-
-\subsection {Front-end Interface}
-
+\section{Front-end Interface}
 Author: Fanping Jiang\\
 
-\medskip
+\noindent Component Description
 
-\noindent Text goes here.\\
+\subsection{Functional Requirements}
 
-Stack(T)
+Text
 
-\subsection* {Uses}
+\subsection{Non-Functional Requirements}
 
-N/A
+\subsubsection {Reliability}
 
-\subsection* {Syntax}
+Text
 
-\subsubsection* {Exported Types}
+\subsubsection {Accuracy of Results}
+ 
+Text
 
-\ {What should be written here?}
+\subsubsection {Performance}
 
-\subsubsection* {Exported Constants}
+Text
 
-None
+\subsubsection {Human-Computer Interface Issues}
 
-\subsubsection* {Exported Access Programs}
+Text
 
-\begin{tabular}{| l | l | l | p{5cm} |}
-\hline
-\textbf{Routine name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions}\\
-\hline
-new Stack & seq of T & Stack & none\\
-\hline
-push & T & Stack & none\\
-\hline
-pop & & Stack & out\_of\_range\\
-\hline
-top & & T & out\_of\_range\\
-\hline
-size & & $\mathbb{N}$ & \\
-\hline
-toSeq& & seq of T & \\
-\hline
-\end{tabular}
+\subsubsection {Physical Constraints}
 
-\subsection* {Semantics}
+Text
 
-\subsubsection* {State Variables}
+\subsubsection {Portability Issues}
 
-$S$:  {What is the type of the state variable?}
+Text
 
-\subsubsection* {State Invariant}
+\subsection{Requirements for the Development & Maintenance Process}
 
-None
+\subsubsection {Quality Control Procedures}
 
-\subsubsection* {Assumptions \& Design Decisions}
+Text
 
-\begin{itemize}
-\item The Stack(T) constructor is called for each object instance before any
-  other access routine is called for that object.  The constructor can only be
-  called once.
-\item Though the toSeq() method violates the essential property of the stack
-  object, since this could be achieved by calling top and pop many times, this
-  method is provided as a convenience to the client. In fact, it increases the
-  property of separation of concerns since this means that the client does not
-  have to worry about details of building their own sequence from the sequence
-  of pops.
-\end{itemize}
+\subsubsection {Priorities of the Required Functions}
 
-\subsubsection* {Access Routine Semantics}
+Text
 
-new Stack($s$):
-\begin{itemize}
-\item transition: $S := s$
+\subsubsection {Likely Changes to System Maintenance Procedures}
 
-\item output: $\mathit{out} := \mathit{self}$
-\item exception: none
-\end{itemize}
+Text
 
-\noindent push($e$):
-\begin{itemize}
-\item output: $out := \text{new Stack}(S\ ||\ \langle e \rangle)$
-\item exception: none
-\end{itemize}
-
-
-\subsection {Machine Learning Inference}
-
+\section{Machine Learning Inference}
 Author: Jessica de Leeuw\\
 
-\medskip
+\noindent Component Description
 
-\noindent The machine learning inference is what provides the services to the client. It holds the value that the user wishes to obtain.\\
+\subsection{Functional Requirements}
 
-The ML Inference will consist of a back-end that handles the trained version of the machine learning model. It will provide the inference services to the front-end. The end-user will input an image that has never been seen before by the ML model, and the model will output a prediction based on its training. It is essentially an API that the front-end will call.\\
+Text
 
-The API will take an image of a person, and return an image of that same person. If it is fully functional, it will return a face that has been aged by a certain amount of years.
+\subsection{Non-Functional Requirements}
 
+\subsubsection {Reliability}
 
-\section{Non-Functional Requirements}
+Text
 
-\subsection {Reliability}
+\subsubsection {Accuracy of Results}
+ 
+Text
 
-Author: Jessica de Leeuw\\
+\subsubsection {Performance}
 
-\medskip
+Text
 
-\noindent Text
+\subsubsection {Human-Computer Interface Issues}
 
-\subsection {Accuracy of Results}
+Text
 
-Author: Jessica de Leeuw\\
+\subsubsection {Physical Constraints}
 
-\medskip
+Text
 
-\noindent Text
+\subsubsection {Portability Issues}
 
-\subsection {Performance}
+Text
 
-Author: Jessica de Leeuw\\
+\subsection{Requirements for the Development & Maintenance Process}
 
-\medskip
+\subsubsection {Quality Control Procedures}
 
-\noindent Text
+Text
 
-\subsection {Human-Computer Interface Issues}
+\subsubsection {Priorities of the Required Functions}
 
-Author: Fanping Jiang\\
+Text
 
-\medskip
+\subsubsection {Likely Changes to System Maintenance Procedures}
 
-\noindent Text
+Text
 
-\subsection {Physical Constraints}
-
-Author: Jeff Gibson\\
-
-\medskip
-
-\noindent Text
-
-\subsection {Portability Issues}
-
-Author: Sam Cymbaluk\\
-
-\medskip
-
-\noindent Text
-
-\section{Requirements for the Development \& Maintenance Process}
-
-\subsection {Quality Control Procedures}
-
-Author: Fanping Jiang\\
-
-\medskip
-
-\noindent Text
-
-\subsection {Priorities of the Required Functions}
-
-Author: Sam Cymbaluk\\
-
-\medskip
-
-\noindent Text
-
-\subsection {Likely Changes to System Maintenance Procedures}
-
-Author: Jeff Gibson\\
-
-\medskip
-
-\noindent Text
-
-\end {document}
+\end{document}
