@@ -36,21 +36,29 @@
 \newpage
 
 \section {Domain}
+Authors: Jessica de Leeuw and Jeff Gibson\\
 
-The main entities which the domain is comprised of are machine learning, big data, and the artificial aging of facial images.\\
+\medskip
 
-A machine learning approach will be used to perform the process of artificial facial aging. To generate accurately aged faces, a conditional Generative Adversarial Neural Network must be trained on big data. The machine learning domain is greatly affected by this project, as it will be the first project publicly available that performs artificial facial aging. On a similar note, if this project can generate sufficient images, it will drastically improve upon current facial aging techniques. This would make it possible that this technique will become the industry standard for artificial facial aging.\\
+\noindent The current method for artificially aging a face in missing persons cases is flawed. The ability to produce an accurate projection with a single picture of the missing person is a powerful solution to this problem. The goal is to implement an algorithm that successfully produces a realistic interpretation of the individuals aged face. \\
 
 Stakeholders would be parties such as the government, and other law enforcement services. The generation of aged faces is useful for tasks such as searching for missing persons. The Canadian government currently employs forensic artists to manually create projections of a missing person at a specific age. Images are generated through drawing, and a significant amount of information (such as pictures of family members) is required about the missing person. The expectation would be that a single image is required as input, and a fairly accurate representation of that person aged a certain number of years would be outputted.\\
 
--Talk about goals that the implementation should meet. (Domain knowledge required for specification)\\
--What are the relationships between the main entities\\
--How are they affected by the system being developed? (Not sure what this means)
+The main entities which the domain is comprised of are machine learning, big data, and the artificial aging of human faces.\\
+
+A machine learning approach will be used to perform the process of artificial facial aging. To generate accurately aged faces, a conditional Generative Adversarial Neural Network (cGAN) must be trained on big data. The machine learning domain is greatly affected by this project, as it will be the first project publicly available that performs artificial aging. On a similar note, if this project can generate sufficiently accurate images, it will drastically improve upon current techniques. This would make it a possibility that this technique could become the industry standard for artificial aging of human faces.\\
 
 \section {Functional Requirements}
 
 \subsection {Machine Learning Training}
 
+Author: Sam Cymbaluk\\
+
+\medskip
+
+\noindent Text goes here.\\
+
+
 Stack(T)
 
 \subsection* {Uses}
@@ -125,39 +133,16 @@ new Stack($s$):
 \begin{itemize}
 \item output: $out := \text{new Stack}(S\ ||\ \langle e \rangle)$
 \item exception: none
-\end{itemize}
-
-\noindent pop():
-\begin{itemize}
-\item output:  {What should go here?}
-
-\item exception:  {What should go here?}
-
-\end{itemize}
-
-\noindent top():
-\begin{itemize}
-\item output: $\mathit{out} := S[|S| - 1]$
-
-\item exception:  {What should go here?}
-
-\end{itemize}
-
-\noindent size():
-\begin{itemize}
-\item output:  {What should go here?}
-\item exception: None
-\end{itemize}
-
-\noindent toSeq():
-\begin{itemize}
-\item output: $\mathit{out} := S$
-\item exception: None
-
 \end{itemize}
 
 \subsection {Data Storage}
 
+Author: Jeff Gibson\\
+
+\medskip
+
+\noindent Text goes here.\\
+
 Stack(T)
 
 \subsection* {Uses}
@@ -232,39 +217,16 @@ new Stack($s$):
 \begin{itemize}
 \item output: $out := \text{new Stack}(S\ ||\ \langle e \rangle)$
 \item exception: none
-\end{itemize}
-
-\noindent pop():
-\begin{itemize}
-\item output:  {What should go here?}
-
-\item exception:  {What should go here?}
-
-\end{itemize}
-
-\noindent top():
-\begin{itemize}
-\item output: $\mathit{out} := S[|S| - 1]$
-
-\item exception:  {What should go here?}
-
-\end{itemize}
-
-\noindent size():
-\begin{itemize}
-\item output:  {What should go here?}
-\item exception: None
-\end{itemize}
-
-\noindent toSeq():
-\begin{itemize}
-\item output: $\mathit{out} := S$
-\item exception: None
-
 \end{itemize}
 
 \subsection {Front-end Interface}
 
+Author: Fanping Jiang\\
+
+\medskip
+
+\noindent Text goes here.\\
+
 Stack(T)
 
 \subsection* {Uses}
@@ -341,44 +303,94 @@ new Stack($s$):
 \item exception: none
 \end{itemize}
 
-\noindent pop():
-\begin{itemize}
-\item output:  {What should go here?}
-
-\item exception:  {What should go here?}
-
-\end{itemize}
-
-\noindent top():
-\begin{itemize}
-\item output: $\mathit{out} := S[|S| - 1]$
-
-\item exception:  {What should go here?}
-
-\end{itemize}
-
-\noindent size():
-\begin{itemize}
-\item output:  {What should go here?}
-\item exception: None
-\end{itemize}
-
-\noindent toSeq():
-\begin{itemize}
-\item output: $\mathit{out} := S$
-\item exception: None
-
-\end{itemize}
 
 \subsection {Machine Learning Inference}
 
-The machine learning inference is what provides the services to the client. It holds the value that the user wishes to obtain.\\
+Author: Jessica de Leeuw\\
 
-The ML Inference will consist of a back-end that handles the trained version of the machine learning model. It will provide the inference services to the front-end. The end-user will input an image that has never been seen before by the ML model, and the model will output a prediction based on its training. It is essentially an API that the front-end will call.
+\medskip
+
+\noindent The machine learning inference is what provides the services to the client. It holds the value that the user wishes to obtain.\\
+
+The ML Inference will consist of a back-end that handles the trained version of the machine learning model. It will provide the inference services to the front-end. The end-user will input an image that has never been seen before by the ML model, and the model will output a prediction based on its training. It is essentially an API that the front-end will call.\\
+
+The API will take an image of a person, and return an image of that same person. If it is fully functional, it will return a face that has been aged by a certain amount of years.
 
 
 \section{Non-Functional Requirements}
 
+\subsection {Reliability}
+
+Author: Jessica de Leeuw\\
+
+\medskip
+
+\noindent Text
+
+\subsection {Accuracy of Results}
+
+Author: Jessica de Leeuw\\
+
+\medskip
+
+\noindent Text
+
+\subsection {Performance}
+
+Author: Jessica de Leeuw\\
+
+\medskip
+
+\noindent Text
+
+\subsection {Human-Computer Interface Issues}
+
+Author: Fanping Jiang\\
+
+\medskip
+
+\noindent Text
+
+\subsection {Physical Constraints}
+
+Author: Jeff Gibson\\
+
+\medskip
+
+\noindent Text
+
+\subsection {Portability Issues}
+
+Author: Sam Cymbaluk\\
+
+\medskip
+
+\noindent Text
+
 \section{Requirements for the Development \& Maintenance Process}
+
+\subsection {Quality Control Procedures}
+
+Author: Fanping Jiang\\
+
+\medskip
+
+\noindent Text
+
+\subsection {Priorities of the Required Functions}
+
+Author: Sam Cymbaluk\\
+
+\medskip
+
+\noindent Text
+
+\subsection {Likely Changes to System Maintenance Procedures}
+
+Author: Jeff Gibson\\
+
+\medskip
+
+\noindent Text
 
 \end {document}
