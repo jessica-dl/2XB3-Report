@@ -51,11 +51,18 @@ A machine learning approach will be used to perform the process of artificial fa
 \section{Machine Learning Training}
 Author: Sam Cymbaluk\\
 
-\noindent Component Description
+\noindent The Machine Learning Training component handles the production of trained weights for the neural network used in this project.
 
 \subsection{Functional Requirements}
 
-Text
+\subsubsection{Data Set Retrieval and Preprocessing} \label{data retrieval}
+The ML Training component calls the Data Storage component and downloads a subset of the data sets stored. It then packages this data into a spacial database format that can either be saved to disk for later use or loaded into RAM for quick access during training.
+
+\subsubsection{Training} \label{training}
+The ML Training component takes the neural network architecture for this project along with the spacial database mentioned in \ref{data retrieval} and trains the network, updating the weights such that each iteration produces better predictions. The exact architecture and training regime is still to be determined; however, the implementation will roughly follow what is described in this paper: \url{https://arxiv.org/abs/1702.01983}. At regular intervals a new version of the network architecture and weights should be saved to a file that can be later be used to restore the state of the network.
+
+\subsubsection{Weights File Upload}
+After training has been completed and a weights file like the one described in \ref{training}, the ML Training component will update the weights file with best performance to the Data Storage component. This will allow the Machine Learning Inference component to later download this file as a means of providing its inference.
 
 \subsection{Non-Functional Requirements}
 
