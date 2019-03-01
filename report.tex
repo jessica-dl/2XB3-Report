@@ -68,27 +68,19 @@ After training has been completed and a weights file like the one described in \
 
 \subsubsection {Reliability}
 
-Text
+Reliability is one of the most important non-functional requirements for this component. The training of the neural network is a process that can take days. For this reason, it is important that any errors are handled gracefully so that progress can be resumed as seamlessly as possible.
 
 \subsubsection {Accuracy of Results}
  
-Text
+The results of training are not either correct or incorrect; rather, the algorithm itself computes the accuracy and uses this value to make incremental improvements throughout the training process.
 
 \subsubsection {Performance}
 
-Text
-
-\subsubsection {Human-Computer Interface Issues}
-
-Text
-
-\subsubsection {Physical Constraints}
-
-Text
+The issue of performing efficient tensor calculations is offloaded to the third-party library Tensorflow. However, we must still ensure that the other main source of bottlenecks, the data pipeline, is being handled efficiently. This means that data should be queued in memory so it is available for the network to train on as soon as it is requested.
 
 \subsubsection {Portability Issues}
 
-Text
+Deep learning in Tensorflow requires a large number of programs, libraries, and drivers to all be installed with exactly correct versions to function correctly and efficiently. In order to reduce the number of potential headaches and to increase the portability of our solution, we will be using Docker to containerize the whole component.
 
 \subsection{Requirements for the Development & Maintenance Process}
 
