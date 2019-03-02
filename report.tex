@@ -86,15 +86,19 @@ Deep learning in Tensorflow requires a large number of programs, libraries, and 
 
 \subsubsection {Quality Control Procedures}
 
-Text
+Unit tests will be written for the most crucial functions like the loss function and data loading procedure. This will ensure that time spent training produces useful results.
 
 \subsubsection {Priorities of the Required Functions}
 
-Text
+The main priority of the required functions are to be as reliable as possible. Like previously mentioned, the training component will often be running for 10s of hours and will need to handle any errors it encounters during execution gracefully to prevent the loss of progress.
 
 \subsubsection {Likely Changes to System Maintenance Procedures}
 
-Text
+There are two anticipated phases to the system maintenance:
+\begin{enumerate}
+    \item Research \& Development which will consist of less structured development until an initial viable model is obtained.
+    \item Continued Development which will consist of improving our viable model into a fully fledged component that includes unit tests and modularized code to promote maintainability.
+\end{enumerate}
 
 \section{Data Storage}
 Author: Jeff Gibson\\
