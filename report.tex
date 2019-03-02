@@ -149,7 +149,6 @@ This is not a concern. Since it is a database, there is no reason to move it.
 
 \subsection{Requirements for the Development \& Maintenance Process}
 
-
 \subsubsection {Quality Control Procedures}
 
 as stated above, it is important that the database implements SQL best practices, as well as
@@ -207,50 +206,52 @@ Text
 \section{Machine Learning Inference}
 Author: Jessica de Leeuw\\
 
-\noindent Component Description
-
 \subsection{Functional Requirements}
 
-Text
+The machine learning inference is what provides the services to the client. It holds the value that the user wishes to obtain.\\
+
+The ML Inference will consist of a back-end that handles the trained version of the machine learning model. It will provide the inference services to the front-end. The end-user will input an image that has never been seen before by the ML model, and the model will output a prediction based on its training. It is essentially an API that the front-end will call.
+
+The API will take an image of a person, and return an image of that same person. If it is fully functional, it will return a face that has been aged by a certain amount of years.
 
 \subsection{Non-Functional Requirements}
 
 \subsubsection {Reliability}
 
-Text
+The ML Inference will have to reliably perform for the user. This means that it will respond to the user in an adequate amount of time, and that it will be guaranteed to not crash when it is called.
 
 \subsubsection {Accuracy of Results}
 
-Text
+It is important that results are accurate, otherwise the resultant photo has no use to the client. The accuracy of the photos that the network outputs will be determined during the ML training stage. The accuracy of the output of the client's photo can only be verified by the client themselves.
 
 \subsubsection {Performance}
 
-Text
+Requests will be sent to the back-end, which is on the GCP. This will guarantee high performance, as it has a significant amount of resources.
 
 \subsubsection {Human-Computer Interface Issues}
 
-Text
+This is handled solely by the front-end.
 
 \subsubsection {Physical Constraints}
 
-Text
+There are no physical constraints for the ML Inference.
 
 \subsubsection {Portability Issues}
 
-Text
+Deep learning in Tensorflow requires a large number of programs, libraries, and drivers to all be installed with exactly correct versions to function correctly and efficiently. In order to increase the portability of our solution, we will be using Docker to containerize the whole component.
 
 \subsection{Requirements for the Development \& Maintenance Process}
 
 \subsubsection {Quality Control Procedures}
 
-Text
+The efficiency and functioning of the ML Inference will be tested before being available to end-users through methods such as unit testing.
 
 \subsubsection {Priorities of the Required Functions}
 
-Text
+TBD
 
 \subsubsection {Likely Changes to System Maintenance Procedures}
 
-Text
+Likely changes would include updating the ML Inference if there is more training done and more accurate results from the neural network.
 
 \end{document}
