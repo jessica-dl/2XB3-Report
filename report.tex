@@ -105,49 +105,63 @@ Author: Jeff Gibson\\
 
 \noindent Component Description
 
+The data storage component is concerned with how data will be stored and indexed throughout the project.
+
 \subsection{Functional Requirements}
 
-Text
+\subsubsection{Data Processing} \label{data processing}
+
+Only "clean" data from the datasets will be uploaded to the cloud for training. "Clean" data
+is defined as members that meet the following criteria:\\
+
+\begin{enumerate}
+    \item Image must be of size 150px X 150px or greater
+    \item Isolated face must occupy at least 50\% of the total image size
+\end{enumerate}
+
+\subsubsection{Cloud Storage}
+
+Data will be in a GCP cloud storage bucket and indexed with an SQL database so that
+it is easily accessible for training. Along with the data, trained versions of the algorithm
+will be stored on the cloud. This means the database will have the functionality to upload files,
+specifically trained versions of the algorithm.
 
 \subsection{Non-Functional Requirements}
 
 \subsubsection {Reliability}
 
-Text
-
-\subsubsection {Accuracy of Results}
- 
-Text
+It is very important that data is not lost, and does not become corrupt. To ensure this the
+database will follow the acid principle.
 
 \subsubsection {Performance}
 
-Text
-
-\subsubsection {Human-Computer Interface Issues}
-
-Text
+As training is already a very long process it is important that the database implements SQL best
+practices to ensure acceptable lookup times.
 
 \subsubsection {Physical Constraints}
 
-Text
+To work around the large storage space requirements, the project will utilize a GCP cloud bucket
+storage space.
 
 \subsubsection {Portability Issues}
 
-Text
+This is not a concern. Since it is a database, there is no reason to move it.
 
 \subsection{Requirements for the Development & Maintenance Process}
 
+
 \subsubsection {Quality Control Procedures}
 
-Text
+as stated above, it is important that the database implements SQL best practices, as well as
+following the acid principle.
 
 \subsubsection {Priorities of the Required Functions}
 
-Text
+TBD
 
 \subsubsection {Likely Changes to System Maintenance Procedures}
 
-Text
+TBD
 
 \section{Front-end Interface}
 Author: Fanping Jiang\\
@@ -165,7 +179,7 @@ Text
 Text
 
 \subsubsection {Accuracy of Results}
- 
+
 Text
 
 \subsubsection {Performance}
@@ -214,7 +228,7 @@ Text
 Text
 
 \subsubsection {Accuracy of Results}
- 
+
 Text
 
 \subsubsection {Performance}
