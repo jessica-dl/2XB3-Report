@@ -51,51 +51,54 @@ A machine learning approach will be used to perform the process of artificial fa
 \section{Machine Learning Training}
 Author: Sam Cymbaluk\\
 
-\noindent Component Description
+\noindent The Machine Learning Training component handles the production of trained weights for the neural network used in this project.
 
 \subsection{Functional Requirements}
 
-Text
+\subsubsection{Data Set Retrieval and Preprocessing} \label{data retrieval}
+The ML Training component calls the Data Storage component and downloads a subset of the data sets stored. It then packages this data into a spacial database format that can either be saved to disk for later use or loaded into RAM for quick access during training.
+
+\subsubsection{Training} \label{training}
+The ML Training component takes the neural network architecture for this project along with the spacial database mentioned in \ref{data retrieval} and trains the network, updating the weights such that each iteration produces better predictions. The exact architecture and training regime is still to be determined; however, the implementation will roughly follow what is described in this paper: \url{https://arxiv.org/abs/1702.01983}. At regular intervals a new version of the network architecture and weights should be saved to a file that can be later be used to restore the state of the network.
+
+\subsubsection{Weights File Upload}
+After training has been completed and a weights file like the one described in \ref{training}, the ML Training component will update the weights file with best performance to the Data Storage component. This will allow the Machine Learning Inference component to later download this file as a means of providing its inference.
 
 \subsection{Non-Functional Requirements}
 
 \subsubsection {Reliability}
 
-Text
+Reliability is one of the most important non-functional requirements for this component. The training of the neural network is a process that can take days. For this reason, it is important that any errors are handled gracefully so that progress can be resumed as seamlessly as possible.
 
 \subsubsection {Accuracy of Results}
  
-Text
+The results of training are not either correct or incorrect; rather, the algorithm itself computes the accuracy and uses this value to make incremental improvements throughout the training process.
 
 \subsubsection {Performance}
 
-Text
-
-\subsubsection {Human-Computer Interface Issues}
-
-Text
-
-\subsubsection {Physical Constraints}
-
-Text
+The issue of performing efficient tensor calculations is offloaded to the third-party library Tensorflow. However, we must still ensure that the other main source of bottlenecks, the data pipeline, is being handled efficiently. This means that data should be queued in memory so it is available for the network to train on as soon as it is requested.
 
 \subsubsection {Portability Issues}
 
-Text
+Deep learning in Tensorflow requires a large number of programs, libraries, and drivers to all be installed with exactly correct versions to function correctly and efficiently. In order to reduce the number of potential headaches and to increase the portability of our solution, we will be using Docker to containerize the whole component.
 
 \subsection{Requirements for the Development & Maintenance Process}
 
 \subsubsection {Quality Control Procedures}
 
-Text
+Unit tests will be written for the most crucial functions like the loss function and data loading procedure. This will ensure that time spent training produces useful results.
 
 \subsubsection {Priorities of the Required Functions}
 
-Text
+The main priority of the required functions are to be as reliable as possible. Like previously mentioned, the training component will often be running for 10s of hours and will need to handle any errors it encounters during execution gracefully to prevent the loss of progress.
 
 \subsubsection {Likely Changes to System Maintenance Procedures}
 
-Text
+There are two anticipated phases to the system maintenance:
+\begin{enumerate}
+    \item Research \& Development which will consist of less structured development until an initial viable model is obtained.
+    \item Continued Development which will consist of improving our viable model into a fully fledged component that includes unit tests and modularized code to promote maintainability.
+\end{enumerate}
 
 \section{Data Storage}
 Author: Jeff Gibson\\
