@@ -82,7 +82,7 @@ The issue of performing efficient tensor calculations is offloaded to the third-
 
 Deep learning in Tensorflow requires a large number of programs, libraries, and drivers to all be installed with exactly correct versions to function correctly and efficiently. In order to reduce the number of potential headaches and to increase the portability of our solution, we will be using Docker to containerize the whole component.
 
-\subsection{Requirements for the Development & Maintenance Process}
+\subsection{Requirements for the Development \& Maintenance Process}
 
 \subsubsection {Quality Control Procedures}
 
@@ -147,7 +147,7 @@ storage space.
 
 This is not a concern. Since it is a database, there is no reason to move it.
 
-\subsection{Requirements for the Development & Maintenance Process}
+\subsection{Requirements for the Development \& Maintenance Process}
 
 
 \subsubsection {Quality Control Procedures}
@@ -166,39 +166,31 @@ TBD
 \section{Front-end Interface}
 Author: Fanping Jiang\\
 
-\noindent Component Description
+\noindent The Front-end Interface module is for user to input data and receive prediction.
 
 \subsection{Functional Requirements}
-
-Text
+\subsubsection{UI}
+Basic User Interface design with only image file input button, time period text box, a click button and a window for retrieving image prediction.
+\subsubsection{Input}\label{input}
+The interface takes facial image with targeted aging period as input data. Raise error if any input is improper in any manners.
+\subsubsection{Output}
+The interface returns aged face after the given time period as prediction. There may be delay depend on back end response time.
 
 \subsection{Non-Functional Requirements}
 
-\subsubsection {Reliability}
+\subsubsection {Usability}
 
-Text
+The designing should be brief but complete.
 
-\subsubsection {Accuracy of Results}
+\subsubsection {Portability}
 
-Text
+This interface should be capable across platforms.
 
-\subsubsection {Performance}
+\subsubsection {Extensibility}
+ 
+Our implementation need flexibility to extend when future features are added.
 
-Text
-
-\subsubsection {Human-Computer Interface Issues}
-
-Text
-
-\subsubsection {Physical Constraints}
-
-Text
-
-\subsubsection {Portability Issues}
-
-Text
-
-\subsection{Requirements for the Development & Maintenance Process}
+\subsection{Requirements for the Development \& Maintenance Process}
 
 \subsubsection {Quality Control Procedures}
 
@@ -247,7 +239,7 @@ Text
 
 Text
 
-\subsection{Requirements for the Development & Maintenance Process}
+\subsection{Requirements for the Development \& Maintenance Process}
 
 \subsubsection {Quality Control Procedures}
 
