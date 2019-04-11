@@ -56,13 +56,13 @@ Author: Sam Cymbaluk\\
 \subsection{Functional Requirements}
 
 \subsubsection{Data Set Retrieval and Preprocessing} \label{data retrieval}
-The ML Training component calls the Data Storage component and downloads a subset of the data sets stored. It then packages this data into a spacial database format that can either be saved to disk for later use or loaded into RAM for quick access during training.
+The ML Training component will make a GCP storage bucket request to collect a preprocessed spacial data set stored as an HDF5 file.
 
 \subsubsection{Training} \label{training}
-The ML Training component takes the neural network architecture for this project along with the spacial database mentioned in \ref{data retrieval} and trains the network, updating the weights such that each iteration produces better predictions. The exact architecture and training regime is still to be determined; however, the implementation will roughly follow what is described in this paper: \url{https://arxiv.org/abs/1702.01983}. At regular intervals a new version of the network architecture and weights should be saved to a file that can be later be used to restore the state of the network.
+The ML Training component takes the neural network architecture for this project along with the spacial database mentioned in \ref{data retrieval} and trains the network, updating the weights such that each iteration produces better predictions. The architecture and training will roughly follow what is described in this paper: \url{https://arxiv.org/abs/1702.01983}. At regular intervals a new version of the network architecture and weights should be saved to a file that can be later be used to restore the state of the network.
 
 \subsubsection{Weights File Upload}
-After training has been completed and a weights file like the one described in \ref{training}, the ML Training component will update the weights file with best performance to the Data Storage component. This will allow the Machine Learning Inference component to later download this file as a means of providing its inference.
+After training has been completed and a weights file like the one described in \ref{training}, the ML Training component will update the weights file with best performance by saving to a GCP storage bucket. This file can then be manually downloaded and given to the ML Inference component.
 
 \subsection{Non-Functional Requirements}
 
@@ -80,9 +80,9 @@ The issue of performing efficient tensor calculations is offloaded to the third-
 
 \subsubsection {Portability Issues}
 
-Deep learning in Tensorflow requires a large number of programs, libraries, and drivers to all be installed with exactly correct versions to function correctly and efficiently. In order to reduce the number of potential headaches and to increase the portability of our solution, we will be using Docker to containerize the whole component.
+Deep learning in Tensorflow requires a large number of programs, libraries, and drivers to all be installed with exactly correct versions to function correctly and efficiently. In order to reduce the number of potential headaches and to increase the portability of our solution, we will package the component in a Python PIP module to make installing the necessary packages automatic.
 
-\subsection{Requirements for the Development \& Maintenance Process}
+\subsection{Requirements for the Development \& Maintenance\\ Process}
 
 \subsubsection {Quality Control Procedures}
 
@@ -97,13 +97,13 @@ The main priority of the required functions are to be as reliable as possible. L
 There are two anticipated phases to the system maintenance:
 \begin{enumerate}
     \item Research \& Development which will consist of less structured development until an initial viable model is obtained.
-    \item Continued Development which will consist of improving our viable model into a fully fledged component that includes unit tests and modularized code to promote maintainability.
+    \item Continued Development which will consist of improving our viable model into a fully fledged component that includes modularized code to promote maintainability.
 \end{enumerate}
 
 \section{Data Storage}
 Author: Jeff Gibson\\
 
-\noindent Component Description
+\noindent Component Description\\
 
 The data storage component is concerned with how data will be stored and indexed throughout the project.
 
@@ -111,32 +111,31 @@ The data storage component is concerned with how data will be stored and indexed
 
 \subsubsection{Data Processing} \label{data processing}
 
-Only "clean" data from the datasets will be uploaded to the cloud for training. "Clean" data
+Only ``clean" data from the datasets will be uploaded to the cloud for training. ``Clean" data
 is defined as members that meet the following criteria:\\
 
 \begin{enumerate}
-    \item Image must be of size 150px X 150px or greater
+    \item Image must be of size 64px X 64px or greater
     \item Isolated face must occupy at least 50\% of the total image size
 \end{enumerate}
 
 \subsubsection{Cloud Storage}
 
-Data will be in a GCP cloud storage bucket and indexed with an SQL database so that
+Data will be preprocessed locally and uploaded as a spatial
+database to the google cloud bucket so that
 it is easily accessible for training. Along with the data, trained versions of the algorithm
-will be stored on the cloud. This means the database will have the functionality to upload files,
-specifically trained versions of the algorithm.
+will be stored on the cloud. 
 
 \subsection{Non-Functional Requirements}
 
 \subsubsection {Reliability}
 
-It is very important that data is not lost, and does not become corrupt. To ensure this the
-database will follow the acid principle.
+It is very important that data is not lost, and does not become corrupt. To ensure this the hdf5 file is stored on
+the Google Cloud Platform (GCP).
 
 \subsubsection {Performance}
 
-As training is already a very long process it is important that the database implements SQL best
-practices to ensure acceptable lookup times.
+As training is already a very long process it is important that the database is not a bottleneck with long lookup times. To ensure that performance is acceptable the spatial database has constant lookup times, and because data is preprocessed, the overhead during training is reduced.
 
 \subsubsection {Physical Constraints}
 
@@ -147,20 +146,18 @@ storage space.
 
 This is not a concern. Since it is a database, there is no reason to move it.
 
-\subsection{Requirements for the Development \& Maintenance Process}
+\subsection{Requirements for the Development \& Maintenance\\  Process}
 
 \subsubsection {Quality Control Procedures}
 
-as stated above, it is important that the database implements SQL best practices, as well as
-following the acid principle.
-
-\subsubsection {Priorities of the Required Functions}
-
-TBD
+Ensure that the spatial database is storing data correctly and in the correct format. To accomplish this, a small
+sample of the data was uploaded initially and tested
+to ensure that the images could be loaded successfully. 
 
 \subsubsection {Likely Changes to System Maintenance Procedures}
 
-TBD
+In the future, when time is not a constraint, we hope to 
+switch from a spatial database to a more maintainable SQL database hosted on the google cloud platform.
 
 \section{Front-end Interface}
 Author: Fanping Jiang\\
@@ -189,19 +186,7 @@ This interface should be capable across platforms.
  
 Our implementation need flexibility to extend when future features are added.
 
-\subsection{Requirements for the Development \& Maintenance Process}
-
-\subsubsection {Quality Control Procedures}
-
-Text
-
-\subsubsection {Priorities of the Required Functions}
-
-Text
-
-\subsubsection {Likely Changes to System Maintenance Procedures}
-
-Text
+%\subsection{Requirements for the Development \& Maintenance\\ Process}
 
 \section{Machine Learning Inference}
 Author: Jessica de Leeuw\\
@@ -210,7 +195,7 @@ Author: Jessica de Leeuw\\
 
 The machine learning inference is what provides the services to the client. It holds the value that the user wishes to obtain.\\
 
-The ML Inference will consist of a back-end that handles the trained version of the machine learning model. It will provide the inference services to the front-end. The end-user will input an image that has never been seen before by the ML model, and the model will output a prediction based on its training. It is essentially an API that the front-end will call.
+The ML Inference will consist of a back-end that handles the trained version of the machine learning model. It will provide the inference services to the front-end. The end-user will input an image that has never been seen before by the ML model, and the model will output a prediction based on its training. It is essentially an API that the front-end will call.\\
 
 The API will take an image of a person, and return an image of that same person. If it is fully functional, it will return a face that has been aged by a certain amount of years.
 
@@ -238,17 +223,13 @@ There are no physical constraints for the ML Inference.
 
 \subsubsection {Portability Issues}
 
-Deep learning in Tensorflow requires a large number of programs, libraries, and drivers to all be installed with exactly correct versions to function correctly and efficiently. In order to increase the portability of our solution, we will be using Docker to containerize the whole component.
+Deep learning in Tensorflow requires a large number of programs, libraries, and drivers to all be installed with exactly correct versions to function correctly and efficiently. In order to increase the portability of our solution, the back-end will be hosted on the GCP.
 
-\subsection{Requirements for the Development \& Maintenance Process}
+\subsection{Requirements for the Development \& Maintenance\\ Process}
 
 \subsubsection {Quality Control Procedures}
 
-The efficiency and functioning of the ML Inference will be tested before being available to end-users through methods such as unit testing.
-
-\subsubsection {Priorities of the Required Functions}
-
-TBD
+The efficiency and functioning of the ML Inference will be tested before being available to end-users through methods such as using a mock client (this is achieved through the used of applications such as Postman).
 
 \subsubsection {Likely Changes to System Maintenance Procedures}
 
